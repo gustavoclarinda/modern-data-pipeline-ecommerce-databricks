@@ -68,7 +68,7 @@ The dashboard provides a business overview of:
 - Customer behavior
 - Order delivery status
 
-(Add screenshot here)
+<img width="1761" height="1105" alt="dashboard" src="https://github.com/user-attachments/assets/3c110106-c179-493b-b00f-6d7ca3691a50" />
 
 ---
 
@@ -77,6 +77,7 @@ The dashboard provides a business overview of:
 The pipeline is automated using Databricks Jobs:
 
 ingestion_raw → bronze_layer → silver_layer → gold_layer
+<img width="1578" height="396" alt="pipe run" src="https://github.com/user-attachments/assets/a0b7c64a-adda-4244-9ac2-a89ffce68668" />
 
 ---
 
@@ -89,4 +90,16 @@ ingestion_raw → bronze_layer → silver_layer → gold_layer
 
 ---
 
-## 📌 Project Structure
+## 📁 Project Structure
+
+```text
+.
+├── images/
+│   ├── dashboard.png
+│   └── pipeline.png
+├── notebooks/
+│   ├── 01_ingestion_raw.py
+│   ├── 02_bronze_layer.py
+│   ├── 03_silver_layer.py
+│   └── 04_gold_layer.py
+└── README.md
