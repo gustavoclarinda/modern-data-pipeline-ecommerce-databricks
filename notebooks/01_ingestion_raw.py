@@ -47,8 +47,8 @@ order_items.head()
 
 # COMMAND ----------
 
-orders.write.mode("overwrite").saveAsTable("raw.orders")
-customers.write.mode("overwrite").saveAsTable("raw.customers")
-products.write.mode("overwrite").saveAsTable("raw.products")
-order_items.write.mode("overwrite").saveAsTable("raw.order_items")
-payments.write.mode("overwrite").saveAsTable("raw.payments")
+orders.write.mode("overwrite").saveAsTable("workspace.raw.orders")
+customers.write.mode("overwrite").saveAsTable("workspace.raw.customers")
+products.write.mode("overwrite").saveAsTable("workspace.raw.products")
+order_items.write.mode("overwrite").saveAsTable("workspace.raw.order_items")
+payments.write.mode("overwrite").saveAsTable("workspace.raw.payments")

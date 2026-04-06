@@ -16,7 +16,7 @@ from pyspark.sql.functions import col, current_timestamp
 orders_raw = spark.table("workspace.raw.orders")
 customers_raw = spark.table("workspace.raw.customers")
 products_raw = spark.table("workspace.raw.products")
-orders_items_raw = spark.table("workspace.raw.order_items")
+order_items_raw = spark.table("workspace.raw.order_items")
 payments_raw = spark.table("workspace.raw.payments")
 
 # COMMAND ----------
@@ -29,7 +29,7 @@ payments_raw = spark.table("workspace.raw.payments")
 orders_raw.printSchema()
 customers_raw.printSchema()
 products_raw.printSchema()
-orders_items_raw.printSchema()
+order_items_raw.printSchema()
 payments_raw.printSchema()
 
 # COMMAND ----------
@@ -97,16 +97,16 @@ products_bronze.printSchema()
 
 # COMMAND ----------
 
-orders_items_bronze = (
-    orders_items_raw
+order_items_bronze = (
+    order_items_raw
     .withColumn("shipping_limit_date", col("shipping_limit_date").cast("timestamp"))
-    .withColumn("ingestion_time", current_timestamp())
+    .withColumn("ingestion_timestamp", current_timestamp())
 )
 
 # COMMAND ----------
 
-display(orders_items_bronze)
-orders_items_bronze.printSchema()
+display(order_items_bronze)
+order_items_bronze.printSchema()
 
 # COMMAND ----------
 
@@ -135,7 +135,7 @@ payments_bronze.printSchema()
 orders_bronze.write.mode("overwrite").format("delta").saveAsTable("workspace.bronze.orders")
 customers_bronze.write.mode("overwrite").format("delta").saveAsTable("workspace.bronze.customers")
 products_bronze.write.mode("overwrite").format("delta").saveAsTable("workspace.bronze.products")
-orders_items_bronze.write.mode("overwrite").format("delta").saveAsTable("workspace.bronze.orders_items")
+order_items_bronze.write.mode("overwrite").format("delta").saveAsTable("workspace.bronze.order_items")
 payments_bronze.write.mode("overwrite").format("delta").saveAsTable("workspace.bronze.payments")
 
 # COMMAND ----------
